@@ -68,6 +68,8 @@ header{
 }
 
 footer {
+    position: absolute;
+    bottom: -1px;
     background-color: #193242;
     padding-top: 20px;
     padding-bottom: 20px;
