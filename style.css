@@ -1,8 +1,8 @@
 html, body {
   height: 100%;
-  overflow-x: hidden;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
   font-family: 'Gill Sans','Gill Sans MT',Calibri,'Trebuchet MS',sans-serif;
   background-color: #124868;
   display: flex;
@@ -10,81 +10,77 @@ html, body {
 }
 
 body::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
   background-color: transparent;
 }
 
 header {
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .Logo {
-  background-color: #2e749c;
   display: flex;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: #2e749c;
 }
 
 .Logo > img {
   max-width: 80px;
-}
-
-.TextLogo {
-  letter-spacing: 1.5px;
-  font-weight: bold;
-  color: #ffffff;
-  font-family: Arial,Helvetica,sans-serif;
-  margin-left: 0.5rem;
-}
-
-.TextLogo > p {
-  margin-top: 5px;
-  color: #19221f;
+  margin-right: 0.75rem;
 }
 
 .TextLogo > h3 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   animation: LogoBar 2s infinite;
 }
 
+.TextLogo > p {
+  margin: 0;
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  color: #19221f;
+}
+
 nav {
-  background-color: rgb(12,41,53);
+  background-color: #0c2935;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .ListNav {
-  list-style: none;
   display: flex;
   justify-content: space-around;
-  padding: 0.5rem;
   margin: 0;
-  font-size: clamp(0.8rem, 1.2vw, 1rem);
-  font-family: 'Arial Narrow Bold',sans-serif;
+  padding: 0.5rem;
+  list-style: none;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
 }
 
-.ListNav > li {
+.ListNav li {
   position: relative;
 }
 
-.ListNav > li > a {
-  display: block;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
+.ListNav a {
   color: #5a90be;
-  letter-spacing: 2px;
-  transition: color 0.3s ease;
-  font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease, background 0.3s ease;
 }
 
-.ListNav > li:hover > a {
-  color: #156898;
+.ListNav a:hover {
+  color: #76b6dd;
+  background: rgba(255,255,255,0.05);
+  border-radius: 4px;
 }
 
 .dropdown {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: rgb(12,41,53);
+  background-color: #0c2935;
   list-style: none;
   margin: 0;
   padding: 0.5rem 0;
@@ -95,21 +91,18 @@ nav {
 
 #DBTN:hover .dropdown {
   display: block;
-  animation: fadeDown 0.3s ease-out forwards;
+  animation: fadeDown 0.25s forwards;
 }
 
-.dropdown li > a {
+.dropdown a {
   display: block;
   padding: 0.5rem 1rem;
-  text-decoration: none;
-  color: #5a90be;
-  transition: background 0.3s ease, color 0.3s ease;
-  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  transition: background 0.3s ease;
 }
 
-.dropdown li > a:hover {
-  background-color: #193242;
-  color: #76b6dd;
+.dropdown a:hover {
+  background-color: rgba(255,255,255,0.1);
 }
 
 main {
@@ -119,55 +112,46 @@ main {
 }
 
 aside {
+  width: clamp(180px, 18%, 240px);
   background-color: #111518;
   color: antiquewhite;
-  width: clamp(150px, 20%, 250px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: flex-start;
   padding: 1rem;
 }
 
-.MyAsidePages {
-  width: 100%;
-  text-align: left;
-}
-
 .MyAsidePages > h1 {
+  margin-top: 0;
   font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: bold;
   color: #1a4c72;
-  margin: 1rem 0;
 }
 
 .PageFeature {
   list-style: none;
   padding: 0;
-  margin: 0;
-}
-
-.PageFeature > li {
-  margin: 1rem 0;
-}
-
-.PageFeature > li > a {
-  display: block;
-  padding: 0.75rem 1rem;
+  margin: 1rem 0 0;
   width: 100%;
-  text-decoration: none;
-  font-size: clamp(1rem, 1.5vw, 1.125rem);
+}
+
+.PageFeature li {
+  margin-bottom: 0.75rem;
+}
+
+.PageFeature a {
+  display: block;
+  padding: 0.5rem;
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
   color: #204d77;
-  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
 }
 
-.PageFeature > li:hover {
+.PageFeature a:hover {
   background-color: #2a3e46;
-}
-
-.PageFeature > li > a:hover {
-  transform: translateY(-5px);
   color: #7e9bb6;
-  animation: sideBar_Menu 1.4s infinite;
+  transform: translateX(4px);
 }
 
 article {
@@ -176,101 +160,124 @@ article {
   padding: 1rem;
 }
 
-article::-webkit-scrollbar {
-  width: 5px;
-  background-color: transparent;
-}
-
 article::-webkit-scrollbar-thumb {
   background-color: #33729e;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .PartArticle {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: clamp(0.5rem, 1vw, 1rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: clamp(0.75rem, 1.5vw, 1.5rem);
+  justify-items: center;
 }
 
 .BookCover {
   background-color: #193242;
-  border-radius: 20px;
+  border-radius: 12px;
   padding: clamp(0.5rem, 1vw, 1rem);
   text-align: center;
   cursor: pointer;
-  width: clamp(120px, 20vw, 200px);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .BookCover:hover {
-  transform: translateY(-10px);
+  transform: translateY(-6px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
-.BookCover > img {
-  border-radius: 20px;
+.BookCover img {
   width: 100%;
   height: auto;
+  border-radius: 8px;
 }
 
 .Go-BooKs {
   margin-top: auto;
+  padding: clamp(0.4rem, 1vw, 0.75rem);
+  font-size: clamp(0.85rem, 1vw, 1rem);
   background-color: #263e50;
-  border-radius: 20px;
-  padding: clamp(0.5rem, 1vw, 0.75rem);
+  border-radius: 8px;
   color: #76b6dd;
-  margin: clamp(0.5rem, 1vw, 1rem) 0 0;
-  font-size: clamp(0.8rem, 1vw, 1rem);
+  transition: background 0.3s;
+}
+
+.Go-BooKs:hover {
+  background-color: #305b7a;
 }
 
 .Fix-Contact {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 1.5rem;
+  right: 1.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-around;
   padding: 0.5rem;
   border-radius: 50px;
   background-color: #124868;
-  cursor: pointer;
-  transition: width 0.3s ease, background 0.3s ease, padding 0.3s ease;
-  z-index: 5;
-}
-
-.Fix-Contact > img {
-  width: 50px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease;
+  z-index: 20;
 }
 
 .Fix-Contact:hover {
   background-color: #1f6aa3;
-  width: 15%;
-  padding: 0.5rem 1rem;
+  transform: scale(1.05);
+}
+
+.Fix-Contact img {
+  width: 40px;
+  margin-right: 0.5rem;
+}
+
+.Contact {
+  display: none;
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  color: #ffffff;
 }
 
 .Fix-Contact:hover .Contact {
   display: block;
 }
 
-.Contact {
-  display: none;
-  color: #ffffff;
-  font-family: Verdana,sans-serif;
-  letter-spacing: 1px;
-  margin-right: 0.5rem;
-  font-size: clamp(0.8rem, 1vw, 1rem);
-}
-
 footer {
-  background-color: #193242;
+  margin-top: auto;
   padding: 1rem;
+  background-color: #193242;
   text-align: center;
   color: #3d8fb6;
-  margin-top: auto;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.2);
+}
+
+@media screen and (max-width: 800px) {
+  .ListNav {
+    flex-wrap: wrap;
+  }
+
+  aside {
+    width: clamp(140px, 25%, 200px);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  aside {
+    width: clamp(100px, 30%, 160px);
+    text-align: center;
+  }
+
+  .PageFeature a {
+    padding: 0.4rem;
+  }
+
+  .PartArticle {
+    grid-template-columns: 1fr;
+  }
+
+  .ListNav {
+    justify-content: center;
+  }
 }
 
 @keyframes fadeDown {
@@ -280,20 +287,7 @@ footer {
   }
 }
 
-@keyframes sideBar_Menu {
-  0%,100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(5px);
-  }
-}
-
 @keyframes LogoBar {
-  0%,100% {
-    color: #0c293f;
-  }
-  50% {
-    color: #153d5e;
-  }
+  0%,100% { color: #0c293f; }
+  50%   { color: #153d5e; }
 }
