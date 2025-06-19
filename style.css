@@ -73,7 +73,7 @@ header{
     left: 0;    
 }
 
-#DBTN > a:hover .dropdown {
+#DBTN:hover .dropdown {
     display: block;
 }
 
