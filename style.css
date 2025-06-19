@@ -1,25 +1,31 @@
-* {
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans','Gill Sans MT',Calibri,'Trebuchet MS',sans-serif;
 }
 
 body {
     background-color: #124868;
-    overflow-x: hidden;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 10;
+    background-color: #2e749c;
 }
 
 .Logo {
     display: flex;
     align-items: center;
-    background-color: #2e749c;
-    padding: 10px;
+    padding: 10px 20px;
 }
 
 .Logo > img {
@@ -31,7 +37,6 @@ header {
     letter-spacing: 1.5px;
     font-weight: bold;
     color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .TextLogo > p {
@@ -49,28 +54,29 @@ nav {
 
 .ListNav {
     display: flex;
-    justify-content: center;
     list-style: none;
+    justify-content: space-around;
+    padding: 10px 20px;
     font-size: smaller;
-    font-family: 'Arial Narrow Bold';
-    padding: 10px;
+    font-family: 'Arial Narrow Bold',sans-serif;
+    overflow-x: auto;
 }
 
-.ListNav > li {
+.ListNav li {
     position: relative;
-    margin: 0 15px;
+    flex: none;
 }
 
-.ListNav > li > a {
+.ListNav a {
     display: block;
-    color: #5a90be;
     text-decoration: none;
+    color: #5a90be;
     letter-spacing: 2px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     transition: color 0.3s;
+    padding: 5px 10px;
 }
 
-.ListNav > li > a:hover {
+.ListNav li:hover > a {
     color: #146898;
 }
 
@@ -84,210 +90,219 @@ nav {
     list-style: none;
 }
 
-.dropdown li a {
+.ListNav li:hover .dropdown {
     display: block;
+}
+
+.dropdown li a {
     padding: 10px;
-    color: #5a90be;
-    text-decoration: none;
-    transition: background 0.3s;
+    color: #76b6dd;
 }
 
 .dropdown li a:hover {
-    background-color: #2a3e46;
-}
-
-#DBTN:hover .dropdown {
-    display: block;
+    color: #fff;
+    background-color: #1f3a4a;
 }
 
 main {
+    flex: 1;
     display: flex;
-    height: calc(100vh - 150px);
     overflow: hidden;
 }
 
 aside {
-    width: 25%;
     background-color: #111518;
-    color: antiquewhite;
+    width: 25%;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 20px 10px;
+    color: antiquewhite;
 }
 
 .MyAsidePages {
-    margin-top: 20px;
+    width: 100%;
     text-align: center;
 }
 
 .MyAsidePages > h1 {
-    font-size: x-large;
+    font-size: 1.2rem;
+    font-weight: bold;
     color: #1a4c72;
-    letter-spacing: 1.5px;
 }
 
 .PageFeature {
     list-style: none;
     margin-top: 20px;
-}
-
-.PageFeature > li {
-    margin: 15px 0;
-    transition: background 0.3s;
-}
-
-.PageFeature > li:hover {
-    background-color: #2a3e46;
-}
-
-.PageFeature > li > a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-    padding: 12px;
-    font-size: large;
-    text-decoration: none;
-    color: #204d77;
-    transition: transform 0.3s, color 0.3s;
-    animation: sideBar_Menu 1.4s infinite;
 }
 
-.PageFeature > li > a:hover {
+.PageFeature li {
+    margin: 15px 0;
+}
+
+.PageFeature a {
+    display: block;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #204d77;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s, background-color 0.3s;
+    text-align: center;
+}
+
+.PageFeature li:hover a {
     transform: translateY(-5px);
     color: #7e9bb6;
+    animation: sideBar_Menu 1.4s infinite;
+    background-color: #2a3e46;
 }
 
 article {
     width: 75%;
     overflow-y: auto;
-    padding: 10px;
-}
-
-.PartArticle {
+    padding: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    animation: fadeIn 0.6s ease-in;
+    gap: 20px;
 }
 
 .BookCover {
     background-color: #193242;
     border-radius: 20px;
     padding: 10px;
-    margin: 10px;
     text-align: center;
-    cursor: pointer;
-    transition: transform 0.5s;
+    transition: transform 0.3s;
+    width: 120px;
+}
+
+.BookCover img {
+    width: 100%;
+    border-radius: 20px;
 }
 
 .BookCover:hover {
     transform: translateY(-10px);
 }
 
-.BookCover > img {
-    width: 100px;
-    height: 150px;
-    border-radius: 20px;
-    object-fit: cover;
-}
-
 .Go-BooKs {
-    margin-top: 8px;
+    margin-top: 10px;
     background-color: #263e50;
     border-radius: 20px;
-    padding: 8px;
+    padding: 5px;
     color: #76b6dd;
+    font-size: 0.9rem;
 }
 
 .Fix-Contact {
     position: fixed;
     bottom: 40px;
     right: 40px;
-    display: flex;
-    align-items: center;
     background-color: #193242;
     border-radius: 50px;
+    display: flex;
+    align-items: center;
     padding: 10px;
-    transition: width 0.3s, background 0.3s;
-    z-index: 200;
+    cursor: pointer;
+    transition: width 0.3s, background-color 0.3s;
+    overflow: hidden;
+    z-index: 5;
 }
 
-.Fix-Contact:hover {
-    width: 180px;
-    background-color: #1f6aa3;
+.Fix-Contact img {
+    width: 40px;
 }
 
 .Fix-Contact .Contact {
-    display: none;
+    white-space: nowrap;
     margin-right: 10px;
-    color: #fff;
-    letter-spacing: 1px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.Fix-Contact:hover {
+    width: 150px;
+    background-color: #1f6aa3;
 }
 
 .Fix-Contact:hover .Contact {
-    display: block;
-}
-
-.Fix-Contact > img {
-    width: 50px;
+    opacity: 1;
 }
 
 footer {
     background-color: #193242;
-    padding: 20px;
     text-align: center;
-    animation: fadeInUp 1s ease;
-}
-
-.FooterSide p {
-    color: #3d8fb6;
+    padding: 20px;
     font-weight: bold;
-    letter-spacing: 1px;
+    color: #3d8fb6;
 }
 
-/* Keyframes */
+@media (max-width: 1040px) {
+    aside {
+        width: 30%;
+        min-width: 150px;
+        padding: 15px 5px;
+    }
+
+    article {
+        width: 70%;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .BookCover {
+        width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ListNav {
+        flex-wrap: nowrap;
+    }
+
+    aside {
+        display: none;
+    }
+
+    article {
+        width: 100%;
+    }
+
+    .Fix-Contact {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header, .Logo, .TextLogo {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .Logo > img {
+        margin: 0 auto;
+    }
+
+    .ListNav a {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .BookCover {
+        width: 80px;
+    }
+}
+
 @keyframes LogoBar {
-    0%, 100% { color: #0c293f; }
+    0%,100% { color: #0c293f; }
     50% { color: #153d5e; }
 }
 
 @keyframes sideBar_Menu {
-    0%, 100% { transform: translateX(0); }
+    0%,100% { transform: translateX(0); }
     50% { transform: translateX(5px); }
 }
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-    main {
-        flex-direction: column;
-        height: auto;
-    }
-    aside, article {
-        width: 100%;
-    }
-    .ListNav {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .ListNav > li {
-        margin: 5px 0;
-    }
-    .dropdown {
-        position: static;
-        width: 100%;
-    }
-    footer {
-        position: relative;
-    }
-        }
